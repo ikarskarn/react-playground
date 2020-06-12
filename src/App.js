@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+//import Split from './composition/Split';
 import './App.css';
+//import Tooltip from './composition/Tooltip';
+import Messages from './Messages';
+import TheDate from './state/TheDate.js';
+import Counter from './state/Counter.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//const firstTooltip = (
+//	<Tooltip color='hotpink' message='tooltip message'>
+//		ipsum
+//	</Tooltip>
+//);
+//
+//const secondTooltip = (
+//	<Tooltip color='#126BCC' message='another tooltip message'>
+//		offiicius
+//	</Tooltip>
+//);
+
+class App extends Component {
+	static defaultProps = {
+		step: 1,
+	};
+	render() {
+		return (
+			<div className="App">
+				<h1>YOUR APPLICATION NAME!</h1>
+				<TheDate />
+				<Counter count={{step: this.props.step}}/>
+				<Messages name="Messages" unread={0}/>
+				<Messages name="Notifications" unread={10}/>
+			</div>
+		);
+	}
 }
 
 export default App;
